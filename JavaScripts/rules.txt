@@ -1,0 +1,5 @@
+this folder will store the javascript files related to the websites
+
+make sure you create a javascript file with a name which describe its purpose
+
+link your javascript file with only your webpage

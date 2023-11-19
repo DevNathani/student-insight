@@ -1,0 +1,1 @@
+this folder will contain the static image files such as background images, logos, or having general use cases

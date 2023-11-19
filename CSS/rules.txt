@@ -1,0 +1,7 @@
+this folder will store the css files related to the websites
+
+make sure you create a css file with a name which describe its purpose
+
+link your css file with only your webpage
+
+
