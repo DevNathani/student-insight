@@ -1,0 +1,5 @@
+this folder will contain all the images used in creation for this website 
+
+make sure you name your image according to the purpose it serves
+
+store your image in the folder which best suites its purpose for examples profiles pics of students will be stored in student folder, all the static images used such as for posters, background,carousel etc to be stored inside carousel 
