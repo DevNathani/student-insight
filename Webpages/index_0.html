@@ -9,43 +9,143 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/header.css')}}">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/index.css">
     <title>Student Insight</title>
+
+
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
+    <!-- Navigattion Bar starts here -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand flex-grow-1 bd-highlight" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="#">
+                    <img src="../Images/Plugins/ABC.svg" alt="Logo" width="30" height="24">
+                </a>
+                <a class="navbar-brand" href="index_0.html" style="font-family: 'Dancing Script', cursive;">ABC
+                    University</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link" aria-current="page" href="#">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                            <a class="nav-link" href="#">Contact Us</a>
                         </li>
                     </ul>
                 </div>
+
             </div>
         </nav>
-    </header>
 
+        <!-- Offcanvas starts here -->
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+            aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title navbar-dark" id="offcanvasWithBothOptionsLabel"
+                    style="font-family: 'Dancing Script', cursive;"> <a class="navbar-brand"
+                        href="{{ url_for('home') }}">ABC University</a></h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav mb-lg-0">
+                    <li class="nav-item border-bottom  
+                    border-primary">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item border-bottom  
+                    border-primary">
+                        <a class="nav-link" href="#">Contact US</a>
+                    </li>
+                    <li class="nav-item border-bottom  
+                    border-primary">
+                        <a class="nav-link" aria-current="page" href="#">Login</a>
+                    </li>
+
+
+                </ul>
+            </div>
+            <div class='d-flex flex-row mb-3 justify-content-around icons'>
+
+                <span class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                </span>
+                <span class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#"><i class="fa-brands fa-twitter"></i></a>
+                </span>
+                <span class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#"><i class="fa-solid fa-envelope"></i></a>
+                </span>
+                <span class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#"><i class="fa-brands fa-instagram"></i></a>
+                </span>
+            </div>
+
+        </div>
+    </header>
+    <!-- Navigation Bar Ends here -->
+
+    <!-- Workspace Start Here -->
+    <div class="workspace container-fluid p-0">
+
+        <!-- Banner Starts Here -->
+        <div class="banner container-fluid">
+
+        </div>
+        <!-- Banner Ends Here -->
+    </div>
+    <!-- Workspace Ends Here -->
+
+    <!-- Footer Starts -->
+
+
+    <footer>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <p class="navbar-brand my-auto"> Copyright &copy; 2023 All Rights Reserved</p>
+                <p class="navbar-brand my-auto"> <img src="../Images//Plugins/student_insight.svg" alt="Logo" width="30"
+                        height="24"> Student
+                    Insight</p>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#"><i class="fa-brands fa-twitter"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#"><i class="fa-solid fa-envelope"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#"><i class="fa-brands fa-instagram"></i></a>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </footer>
+    <!-- Footer Ends Here -->
+
+    <!-- Javascripts Links Start Here -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-
+    <script src="https://kit.fontawesome.com/9683a222f9.js" crossorigin="anonymous"></script>
+    <!-- Javascripts Links End Here -->
 
 
 </body>

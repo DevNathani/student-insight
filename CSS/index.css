@@ -1,0 +1,8 @@
+.workspace {
+    min-height: calc(100vh - 14vh);
+}
+
+.banner {
+    height: 400px;
+    background: #2B3F61;
+}
