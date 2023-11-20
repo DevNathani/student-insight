@@ -34,7 +34,7 @@
 
 .banner-body button {
     color: var(--bs-white);
-    background-color: var(--header-color);
+    background-color: var(--banner-text-color);
     font-weight: 600;
     font-family: sans-serif;
     border-radius: 40rem;
