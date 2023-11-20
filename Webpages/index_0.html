@@ -21,7 +21,7 @@
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="./index_0.html">
                     <img src="../Images/Plugins/ABC.svg" alt="Logo" width="30" height="24">
                 </a>
                 <a class="navbar-brand" href="index_0.html" style="font-family: 'Dancing Script', cursive;">ABC
@@ -50,8 +50,8 @@
             aria-labelledby="offcanvasWithBothOptionsLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title navbar-dark" id="offcanvasWithBothOptionsLabel"
-                    style="font-family: 'Dancing Script', cursive;"> <a class="navbar-brand"
-                        href="{{ url_for('home') }}">ABC University</a></h5>
+                    style="font-family: 'Dancing Script', cursive;"> <a class="navbar-brand" href="./index_0.html">ABC
+                        University</a></h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
@@ -97,19 +97,33 @@
     <div class="workspace container-fluid p-0">
 
         <!-- Banner Starts Here -->
-        <div class="banner container-fluid">
-
+        <div class="banner">
+            <div class="banner-body p-5">
+                <h1 class="fs-2">
+                    ABC University
+                </h1>
+                <p class="mx-5 my-2 fs-7 text-break">&#8216; and Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Debitis quibusdam, consectetur
+                    exercitationem quasi vitae aliquam expedita voluptatem earum impedit repellat nobis explicabo
+                    pa &#8217;</p>
+                <button class="btn btn-primary m-4 me-auto px-5 py-3 fs-4" href="#">Log In</button>
+            </div>
         </div>
         <!-- Banner Ends Here -->
+
+        <!-- Testing Div Starts Here : This Dive is written to test the responsiveness of banner, Delete it after use -->
+        <div style="width: 100%; height:20vh; background-color: red;">
+            This Div is written to test the responsiveness of banner, Delete it after use
+        </div>
+        <!-- Testing Div Ends Here -->
+
     </div>
     <!-- Workspace Ends Here -->
 
     <!-- Footer Starts -->
-
-
     <footer>
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container-fluid">
+        <nav class=" navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid" style="font-family: 'Dancing Script', cursive;">
                 <p class="navbar-brand my-auto"> Copyright &copy; 2023 All Rights Reserved</p>
                 <p class="navbar-brand my-auto"> <img src="../Images//Plugins/student_insight.svg" alt="Logo" width="30"
                         height="24"> Student
