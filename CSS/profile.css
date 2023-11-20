@@ -1,0 +1,146 @@
+
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+
+* {
+    margin: 0;
+}
+
+body {
+    background-color: #f5f8fa;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+/* NavbarTop */
+.navbar-top {
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 70px;
+    display: flex;
+    justify-content: space-between; 
+    padding: 0 20px;
+}
+
+.logo img {
+    max-height: 70px; 
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px; 
+    padding-top: 12px;
+    text-align: right;
+    padding-left:250px
+}
+
+.navbar-top ul {
+    list-style-type: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-top ul li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.navbar-top ul li:first-child {
+    margin-left: auto;
+}
+
+.navbar-top ul li:last-child {
+    margin-left: 0; 
+}
+
+.navbar-top ul li a {
+    color: #333;
+    padding: 14px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar-top ul li a:hover {
+    background-color: #ddd;
+}
+
+.main {
+    margin: 2% auto;
+    width: 70%;
+    text-align: left; 
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    height: auto;
+}
+
+.profile-container {
+    text-align: center;
+}
+
+.profile-img {
+    border-radius: 50%; 
+    width: 150px;
+    height: 150px; 
+}
+
+
+.card-body {
+    text-align: left; 
+}
+
+.table-container {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+}
+
+.table-container table {
+    width: 100%;
+}
+
+.table-container td:first-child {
+    text-align: left; 
+}
+
+.table-container td:nth-child(2),
+.table-container td:nth-child(4) {
+    text-align: center; 
+}
+
+.table-container td:last-child {
+    text-align: right; 
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 0 10px;
+}
+
+button:hover {
+    background-color: #ADD8E6;
+    color: black;
+    transform: scale(1.1);
+}
+
