@@ -1,3 +1,7 @@
+:root {
+    --header-color: #2B3F61;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
 
@@ -6,8 +10,12 @@
     padding: 0;
 }
 
+body {
+    background-color: var(--bs-white);
+}
+
 nav {
-    background-color: #2B3F61;
+    background-color: var(--header-color);
 }
 
 nav ul {
@@ -21,7 +29,7 @@ nav ul {
 }
 
 .offcanvas-header {
-    background-color: #2B3F61;
+    background-color: var(--header-color);
 }
 
 

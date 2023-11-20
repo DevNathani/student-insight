@@ -4,5 +4,5 @@
 
 .banner {
     height: 400px;
-    background: #2B3F61;
+    background: var(--header-color);
 }
