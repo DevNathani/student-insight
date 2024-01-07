@@ -1,0 +1,149 @@
+*{
+  box-sizing: border-box;
+}
+/* :root{
+  --color-invalid: red
+  --color-valid: green
+} */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #3498db;
+  color: #fff;
+}
+
+.form {
+  max-width: 400px;
+  position: relative;
+  /* width: 100%; */
+  margin: 80px auto;
+  padding: 20px;
+  background-color: #2980b9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+ .form img {
+  display: block;
+  /* background-blend-mode: multiply;   */
+  max-width: 70%;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  
+} 
+.input-group__input:focus{
+  outline-offset: 3px;
+}
+
+.input-group__input{
+  font-weight: bold;
+}
+
+.input-group {
+  position: relative;
+  --x: 20px;
+  --y:10px;
+  margin-bottom: 15px;
+}
+
+.input-group__input, 
+.input-group__label, 
+.submit-btn{
+  font-size: 1.2rem;
+}
+
+.input-group__error{
+  display: block;
+  visibility: hidden;
+  margin-left: var(--x);
+  margin-top: 3px;
+  /* margin-bottom: 2px; */
+  font-size: 0.6rem;
+  color: red;
+}
+
+.input-group__input, .input-group__error{
+  --left: 0;
+  left: var(--left);
+  position: relative;
+}
+
+
+.input-group__input {
+  width: 100%;
+  border: 2px solid rgb(177, 177,177);
+  position: relative;
+   padding: 10px;
+  border: none;
+  border-radius: 6px;
+}
+
+.input-group__input:is(
+  :focus,
+  :not(:placeholder-shown)
+)
+~ .input-group__label{
+  top: calc(var(--y) - 20px);
+  font-size: 0.7rem;
+  border-color: black;
+  color: green;
+}
+
+.input-group__label {
+  position: absolute;
+  background-color:white;
+  color: black;
+  left: calc(var(--x) - 6px);
+  top: calc(var(--y) - 3px);
+  border: 1px solid transparent;
+  padding: 0 6px;
+  margin: 0;
+  cursor: text;
+  transition: top 300ms, font-size 300ms,
+    border-color 300ms;
+}
+
+.input-group__input:not(:focus):invalid{
+  color: red;
+  border:2px solid red;
+}
+
+.input-group__input:not(:focus):invalid ~ .input-group__error{
+  visibility: visible;
+}
+
+.input-group__input:not(:focus):invalid ~ .input-group__label{
+  color: red;
+  border-color:red;
+}
+  
+
+
+
+.submit-btn  {
+  width: 100%;
+  padding: 10px;
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+.back-button  {
+  margin-top: 20px;
+  text-align: center;
+
+}
+
+.back-button a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
