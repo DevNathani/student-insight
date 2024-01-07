@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="log2.css">
+  <title>Student Insight</title>
+
+</head>
+<body>
+  <form class="form">
+    <img src="project_logo_final.png" alt="Student Image">
+    <div class="input-group">
+      <input
+        class="input-group__input"
+       
+        id="email"
+         
+        placeholder=""
+        pattern="[a-z0-9]{8,}"
+      />
+      <label
+        class="input-group__label"
+        for="email"
+        >Student ID</label
+      >
+      <span class="input-group__error">
+        Not a valid Student ID
+      </span>
+    </div>
+    <div class="input-group">
+      <input
+        class="input-group__input"
+        type="password"
+        id="password"
+        placeholder=""
+        pattern="[a-z0-9]{6,}"
+      />
+      <label
+        class="input-group__label"
+        for="password"
+        >Password</label
+      >
+      <span class="input-group__error">
+        Digits or letters, min 6 chars
+      </span>
+    </div>
+    <div class="input-group">
+      <button class="submit-btn" type="submit">
+        Submit
+      </button>
+    </div>
+
+    <div class="back-button">
+      <a href="#">Back</a>
+    </div>
+  </form>
+  
+</body>
+</html>
