@@ -1,0 +1,960 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Insights</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style type="text/css">
+      
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.card-client {
+  background: #555;
+  max-width: 350px;
+  display: grid;
+  place-items: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 35%;
+  margin-top: 5%;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 10px #212121;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+.user-picture {
+  transform: translateY(-10px);
+  overflow: hidden;
+  object-fit: cover;
+  width: 5rem;
+  height: 5rem;
+  border: 4px solid #fff;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.user-picture img {
+  width: 5rem;
+  fill: currentColor;
+  clip-path: circle(50%);
+  object-fit: cover;
+}
+
+.name-client {
+  margin: 0;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.name-client span {
+  display: block;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+.info:before {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 20px 0;
+  background: #fff;
+}
+
+.info a {
+  position: relative;
+  margin-right: 15px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.info a:last-child {
+  margin-right: 0;
+}
+
+.info a svg {
+  width: 1.1rem;
+  fill: currentColor;
+}
+
+.tooltip-social {
+  background: #262626;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  padding: 0.5rem 0.4rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -90%);
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.tooltip-social:after {
+  content: " ";
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  border: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: transparent;
+  transform: translate(-50%, 100%);
+}
+
+.info a .tooltip-social:after {
+  border-top-color: #262626;
+}
+
+.info a:hover .tooltip-social {
+  opacity: 1;
+  transform: translate(-50%, -130%);
+}
+
+th{
+    text-align: left;
+    color: white;
+}
+td{
+    text-align: left;
+    width: 50%;
+    color: white;
+}
+.button{
+  background: white;
+  border-radius: 99px;
+  box-shadow: black 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 0px 12px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+
+.button:hover {
+  box-shadow: black 0 -1px 18px -14px inset,black 0 1px 2px,black 0 2px 4px,black 0 2px 2px,black 0 2px 2px,blue 0 1px 1px;
+  transform: scale(0.95);
+}
+
+.logo img {
+    max-height: 100%;
+    position: relative;
+    padding-left: 5px;
+}
+
+
+.button-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  display: flex;
+  background-color: rgba(285, 173, 184);
+  width: 400px;
+  height: 40px;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+
+.nav-button {
+  outline: 0 !important;
+  border: 0 !important;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all ease-in-out 0.3s;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  transform: translateY(-3px);
+}
+
+.icon {
+  font-size: 20px;
+}
+
+
+header {
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  max-height: 50px; /* Adjust the maximum height of the logo */
+}
+
+.company-name p {
+  color: white;
+  font-size: 25px;
+  margin-left: 10px; /* Adjust the spacing between logo and company name */
+}
+
+nav {
+  background-color: #333;
+  border-radius: 15px;
+
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #555;
+}
+
+.nav-button a:hover{
+    background-color: rgba(285, 173, 184);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* ///////////..utility classes../////////// */
+
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5em 1.5em;
+  text-decoration: none;
+  border-radius: 50px;
+  cursor: pointer;
+  outline: none;
+  margin-top: 1em;
+  text-transform: uppercase;
+  font-weight: small;
+}
+
+.btn-primary {
+  color: #fff;
+  background: #16a083;
+}
+
+.btn-primary:hover {
+  background: #117964;
+  transition: background 0.3s ease-in-out;
+}
+
+/* desktop mode............/// */
+
+.navbar input[type="checkbox"],
+.navbar .hamburger-lines {
+  display: none;
+}
+
+.navbar {
+  box-shadow: 0px 5px 10px 0px #aaa;
+  position: fixed;
+  width: 98%;
+  background: #fff;
+  color: #000;
+  opacity: 0.85;
+  height: 50px;
+  z-index: 12;
+  margin: 10px 10px 10px 10px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  height: 64px;
+  align-items: center;
+}
+
+.menu-items {
+  order: 2;
+  display: flex;
+}
+
+.menu-items li {
+  list-style: none;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.menu-items a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  padding-right:4px;
+}
+
+.menu-items a:hover {
+  color: #117964;
+  transition: scale(1.2);
+}
+
+.logo {
+  order: 1;
+  font-size: 2.3rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ............//// Showcase styling ////......... */
+
+.showcase-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 1.6rem;
+}
+
+.main-title {
+  text-transform: uppercase;
+  margin-top: 1.5em;
+}
+
+@keyframes about-img-animation {
+  100% {
+    transform: translate(0);
+  }
+}
+
+.about-text {
+  flex: 1 1 400px;
+  padding: 30px;
+  margin: auto;
+  transform: translate(-150%);
+  animation: about-text-animation 1s ease-in-out forwards;
+}
+
+@keyframes about-text-animation {
+  100% {
+    transform: translate(0);
+  }
+}
+
+
+/* ......../ media query /.......... */
+
+@media (max-width: 768px) {
+  
+    .card-client {
+  background: #555;
+  max-width: 320px;
+  display: grid;
+  place-items: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 10%;
+  margin-top: 15%;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 10px #212121;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+.user-picture {
+  transform: translateY(-10px);
+  overflow: hidden;
+  object-fit: cover;
+  width: 7rem;
+  height: 7rem;
+  border: 4px solid #fff;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+  
+  .navbar {
+    opacity: 0.95;
+  }
+
+  .navbar-container input[type="checkbox"],
+  .navbar-container .hamburger-lines {
+    display: block;
+  }
+
+  .navbar-container {
+    display: block;
+    position: relative;
+    height: 64px;
+  }
+
+  .navbar-container input[type="checkbox"] {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 30px;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    opacity: 0;
+  }
+
+  .navbar-container .hamburger-lines {
+    display: block;
+    height: 23px;
+    width: 35px;
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .navbar-container .hamburger-lines .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: #333;
+  }
+
+  .navbar-container .hamburger-lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .navbar-container .hamburger-lines .line2 {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .navbar-container .hamburger-lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .navbar .menu-items {
+    padding-top: 100px;
+    background: #fff;
+    height: 100vh;
+    max-width: 300px;
+    transform: translate(-150%);
+    display: flex;
+    flex-direction: column;
+    margin-left: -40px;
+    padding-left: 50px;
+    transition: transform 0.5s ease-in-out;
+    box-shadow: 5px 0px 10px 0px #aaa;
+  }
+
+  .navbar .menu-items li {
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  .logo {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 2rem;
+  }
+
+  .navbar-container input[type="checkbox"]:checked ~ .menu-items {
+    transform: translateX(0);
+  }
+
+  .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+    transform: rotate(35deg);
+  }
+
+  .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+    transform: scaleY(0);
+  }
+
+  .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+    transform: rotate(-35deg);
+  }
+
+
+@media (max-width: 500px) {
+  
+    .card-client {
+  background: #555;
+  max-width: 300px;
+  display: grid;
+  place-items: center;
+  padding: 25% 25% 20% 20%;
+  margin-left: 20%;
+  margin-top: 15%;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 10px #212121;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+.user-picture {
+  transform: translateY(-10px);
+  overflow: hidden;
+  object-fit: cover;
+  width: 7rem;
+  height: 7rem;
+  border: 4px solid #fff;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+  
+  .navbar {
+  box-shadow: 0px 5px 10px 0px #aaa;
+  position: fixed;
+  width: 95%;
+  }
+  
+  html {
+    font-size: 90%;
+    text-align:center;
+  }
+
+  .navbar .menu-items li{
+      font-size: 1.6rem;
+  }
+
+  .logo {
+    position: absolute;
+    top: 06px;
+    right: 15px;
+    padding-top:1.8px;
+    font-size: 1.6rem;
+  }
+
+  .navbar .menu-items li {
+    margin-bottom: 2.5rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+  .hamburger-lines{
+    text-align:left;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1500px) {
+  .img-container h3 {
+    font-size: 1.5rem;
+  }
+
+  .img-container .btn {
+    font-size: 0.7rem;
+  }
+}
+
+
+/* FOR TABLET SCREEN */
+
+@media only screen and (max-width: 900px) {
+      .card-client {
+  background: #555;
+  max-width: 320px;
+  display: grid;
+  place-items: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 29%;
+  margin-top: 30px;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 10px #212121;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+
+.user-picture {
+  transform: translateY(-10px);
+  overflow: hidden;
+  object-fit: cover;
+  width: 5rem;
+  height: 5rem;
+  border: 4px solid #fff;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.user-picture img {
+  width: 5rem;
+  fill: currentColor;
+  clip-path: circle(50%);
+  object-fit: cover;
+}
+  }
+  
+   @media (max-width: 800px) {
+     
+    .card-client {
+  background: #555;
+  max-width: 320px;
+  display: grid;
+  place-items: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 26%;
+  margin-top: 7%;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 10px #212121;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+  }
+  
+  @media (max-width: 600px) {
+  
+    .card-client {
+  background: #555;
+  max-width: 350px;
+  display: grid;
+  place-items: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 20%;
+  margin-top: 10%;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 10px #212121;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+.user-picture {
+  transform: translateY(-10px);
+  overflow: hidden;
+  object-fit: cover;
+  width: 7rem;
+  height: 7rem;
+  border: 4px solid #fff;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+  }
+  
+  @media (max-width: 500px) {
+  
+    .card-client {
+  background: #555;
+  max-width: 320px;
+  display: grid;
+  place-items: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 17%;
+  margin-top: 10%;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 10px #212121;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+  }
+  
+  @media (max-width: 414px) {
+  
+    .card-client {
+  background: #555;
+  max-width: 320px;
+  display: grid;
+  place-items: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 8.5%;
+  margin-top: 15%;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 10px #212121;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+.user-picture {
+  transform: translateY(-10px);
+  overflow: hidden;
+  object-fit: cover;
+  width: 7rem;
+  height: 7rem;
+  border: 4px solid #fff;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+  }
+  
+  @media (max-width: 380px) {
+  
+    .card-client {
+  background: #555;
+  max-width: 320px;
+  display: grid;
+  place-items: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 6%;
+  margin-top: 15%;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 10px #212121;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+  }
+  
+  @media (max-width: 350px) {
+  
+    .card-client {
+  background: #555;
+  max-width: 320px;
+  display: grid;
+  place-items: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 2%;
+  margin-top: 15%;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 10px #212121;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+  }
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container container">
+          <input type="checkbox" name="" id="">
+          <div class="hamburger-lines">
+              <span class="line line1"></span>
+              <span class="line line2"></span>
+              <span class="line line3"></span>
+          </div>
+          <ul class="menu-items">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">L</a></li>
+              <li><a href="#about">lassan</a></li>
+              <li><a href="#contact">Log-out</a></li>
+          </ul>
+          <h4 class="logo">Student Insights</h4>
+      </div>
+  </nav>
+    <section class="showcase-area" id="showcase">
+    <br>
+
+    <div class="card-client">
+    <div class="user-picture">
+        <img src="INSERT IMAGE LINK">
+    </div>
+    <p class="name-client"> NAME
+        <span>CSJMA2100xxxxx
+        </span>
+    </p>
+
+    <div class="info">
+        <p>
+        <table>
+            <tr>
+                <th>Roll No.</th>
+                <th>:</th>
+                <td>21015xxxxx</td>
+            </tr>
+            <tr>
+                <th>Course</th>
+                <th>:</th>
+                <td>B.C.A.</td>
+            </tr>
+            <tr>
+                <th>Current Sem.</th>
+                <th>:</th>
+                <td>... ...</td>
+            </tr>
+            <tr>
+                <th>Exam Type</th>
+                <th>:</th>
+                <td>Regular</td>
+            </tr>
+            <tr>
+                <th>College name and code</th>
+                <th>:</th>
+                <td>Dr.VSICS - KN80</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <th>:</th>
+                <td>... ...</td>
+            </tr>
+            <tr>
+                <th>Father's Name</th>
+                <th>:</th>
+                <td>... ... ...</td>
+            </tr>
+        </table>
+        </p>
+      <br>
+        <hr size="1.5" width="100%" color="white">
+        <a href="#">
+            stevegates@phub.com
+            <span class="tooltip-social">Email</span>
+        </a>
+        <a href="#">
+            +91 xxxxx xxxxx
+            <span class="tooltip-social">Contact No.</span>
+        </a>
+        <hr size="2" width="100%" color="white" style="text-align: center;">
+<br>
+        <div class="tab-button">
+            <button class="button" onclick=" ">View Rank</button>
+            <button class="button" onclick=" ">View Marksheet</button>
+            <button class="button" onclick=" ">Notes</button>
+        </div>
+
+    </div>
+</div>
+    </section>
+  </body>
+  <!-- 
+    .................../ JS Code for smooth scrolling /...................... -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Add smooth scrolling to all links
+      $("a").on("click", function (event) {
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
+
+          // Store hash
+          var hash = this.hash;
+
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+          $("html, body").animate(
+            {
+              scrollTop: $(hash).offset().top,
+            },
+            800,
+            function () {
+              // Add hash (#) to URL when done scrolling (default click behavior)
+              window.location.hash = hash;
+            }
+          );
+        } // End if
+      });
+    });
+  </script>
+</html>
