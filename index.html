@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Bulletin Board</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ede9f1;
+    }
+
+    #container {
+      width: 70%;
+      margin: 50px auto;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .events-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: left;
+    }
+
+    .event-row {
+      cursor: pointer;
+      width: 100%;
+      margin: 10px;
+      padding: 20px;
+      background-color: #eee5e5;
+      border-radius: 20px;
+      box-shadow: 0 0 5px rgba(4, 91, 221, 0.89);
+    }
+
+    .event-img {   
+      max-width: 30%;
+      height: auto;
+      border-radius: 20px;
+      margin-top: 1px 0px;
+      float: right;
+      }
+
+    .btn {
+        padding: 3px;
+        float: left;
+        border-radius: 7px;
+        margin-left: 43%;
+        margin-bottom: 30px;
+        box-shadow: 0 0 5px rgba(4, 76, 221, 0.89);
+    }
+
+    .btn1 {
+      margin-top: auto;
+    }
+
+  </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Bulletin Board</h1>
+    <div id="page1" class="page active">
+      <div class="events-container">
+        <div class="event-row">
+            <h1>Title 1</h1>
+          <img src="\Users\kusha\Downloads\bg.jpg.jpg" alt="Event 1" class="event-img">
+
+          <p> Description - 
+
+            <div class="btn1">
+              <button link="Link"> link </button>
+            </div>
+          </p>
+        </div>
+        <div class="event-row">
+            <h1>Title 2</h1>
+          <img src="\Users\kusha\Downloads\bg.jpg.jpg" alt="Event 2" class="event-img">
+          <p>Description -
+            <div class="btn1">
+              <button link="Link"> link </button>
+            </div>
+           </p>
+        </div>
+        <div class="event-row">
+            <h1>Title 3</h1>
+          <img src="\Users\kusha\Downloads\bg.jpg.jpg" alt="Event 3" class="event-img">
+          <p>Description - 
+            <div class="btn1">
+              <button link="Link"> link </button>
+            </div>
+          </p>
+        </div>
+        <div class="event-row">
+            <h1>Title 4</h1>
+            <img src="\Users\kusha\Downloads\bg.jpg.jpg" alt="Event 4" class="event-img">
+            <p>Description - 
+              <div class="btn1">
+                <button link="Link"> link </button>
+              </div>
+            </p>
+          </div>
+    </div>
+    </div>
+
+
+    <div id="page2" class="page">
+        <div class="events-container">
+            <div class="event-row">
+              <img src="event1.jpg" alt="Event 1" class="event-img">
+              <h1>Title 1</h1>
+              <p> Description - 
+                <div class="btn1">
+                  <button link="Link"> link </button>
+                </div>
+              </p>
+            </div>
+            <div class="event-row">
+              <img src="event2.jpg" alt="Event 2" class="event-img">
+              <h1>Title 2</h1>
+              <p>Description - 
+                <div class="btn1">
+                  <button link="Link"> link </button>
+                </div>
+              </p>
+            </div>
+            <div class="event-row">
+              <img src="event3.jpg" alt="Event 3" class="event-img">
+              <h1>Title 3</h1>
+              <p>Description - 
+                <div class="btn1">
+                  <button link="Link"> link </button>
+                </div>
+              </p>
+            </div>
+          </div>
+    </div>
+
+    <div id="page3" class="page">
+      <!-- Content for page 3 -->
+    </div>
+
+  </div>
+
+  <script>
+    function changePage(pageNumber) {
+      // Hide all pages
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+
+      // Show the selected page
+      document.getElementById('page' + pageNumber).classList.add('active');
+    }
+  </script>
+  <div class="btn">
+    <button onclick="changePage(1)"> < </button>
+    <button onclick="changePage(1)">Page 1</button>
+    <button onclick="changePage(2)">Page 2</button>
+    <button onclick="changePage(3)">Page 3</button>
+    <button onclick="changePage(2)"> > </button>
+
+  </div>
+</body>
+</html>
