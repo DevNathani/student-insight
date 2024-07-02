@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@200;300;400;500&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body::before {
+  content: "";
+  background-image: url("../Images/logo\ main.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+  opacity: 0.9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-size: 52vmax;
+  z-index: -1;
+}
+
+@media (max-width: 992px) {
+  body::before {
+    background-size: 110vmax;
+    opacity: 0.18;
+  }
+}
+
+.custom-nav .navbar-brand {
+  color: #2458c7;
+}
+
+.custom-nav .nav-item .nav-link {
+  text-transform: uppercase;
+  color: black;
+}
+
+.custom-nav .nav-item .nav-link:hover {
+  text-transform: uppercase;
+  color: #2458c7;
+}
+
+.custom-nav .btn-sign-in {
+  color: #2458c7;
+  border-style: none;
+}
+
+@media (max-width: 992px) {
+  .custom-nav .btn-sign-in {
+    background-color: #2458c7;
+    color: black;
+  }
+}
+
+.custom-nav .btn-sign-in:hover {
+  border-style: none;
+  color: black;
+  background-color: #97b3e2;
+}
+
+.custom-nav .nav-item {
+  margin-right: 10px;
+}
+
+.know-more {
+  text-transform: uppercase;
+  border-radius: 20px;
+  color: black;
+  background-color: #ea745f;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.know-more:hover {
+  text-transform: uppercase;
+  border-radius: 20px;
+  color: gray;
+  background-color: transparent;
+  border-style: none;
+  border: 2px solid #ea745f;
+}
+
+.contact-section {
+  margin-top: 8em;
+}
+
+.contact-section h1 {
+  color: #2458c7;
+  font-weight: 700;
+}
+
+.contact-section p {
+  color: black;
+}
+
+@media (max-width: 992px) {
+  .contact-section {
+    text-align: center;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

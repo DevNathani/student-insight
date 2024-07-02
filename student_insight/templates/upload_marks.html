@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Insight</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'CSS/upload_marks.css') }}">
+</head>
+
+<body>
+    <div class="container p-2 my-5">
+        <h1 class="display-4 fw-bold">Upload Marks</h1>
+        {% if check_user %}
+        <div class="container">
+            <h1 class="display-9 fw-bold" style="color: red;">You have already uploaded your Result....</h1>
+            {{ current_user.s_no }}
+            {{ current_user.cgpa }}
+            {{ current_user.result_file }}
+        </div>
+        {% else %}
+        <div class="jumbotron my-5 p-2">
+
+            <div class="container">
+
+                <h1 class="display-4 fw-bold">Semester 1</h1>
+                <p class="lead fw-semibold text-danger">Ensure that all information provided in the form is accurate and
+                    up to date to avoid any
+                    potential legal consequences
+                </p>
+            </div>
+            <hr class="my-4">
+            <div class="container-fluid">
+                <!-- <h1 class="display-6 text-center fw-semibold">Semester 1</h1>
+                <hr class="my-1" style="margin: auto;border: 2px solid black" size="2em" width="20%"> -->
+                <form class="row g-3 my-3" method="post" action="{{ url_for('upload_marks')}}"
+                    enctype="multipart/form-data">
+
+                    <!-- Row 1 -->
+                    <div class="col-md-4">
+                        <label for="name" class="form-label fw-bold">Name</label>
+                        <input type="text" class="form-control" style='background-color: rgb(205, 202, 202);' id="name"
+                            name="name" placeholder="Name" required readonly value="{{ current_user.name }}">
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="email" class="form-label fw-bold">Email</label>
+                        <input type="email" class="form-control" style='background-color: rgb(205, 202, 202);'
+                            id="email" name="email" placeholder="Email" required readonly
+                            value="{{ current_user.email }}">
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="Course" class="form-label fw-bold">Course</label>
+                        <input type='text' id="Course" class="form-control"
+                            style='background-color: rgb(205, 202, 202);' name="course" required readonly="true"
+                            value="{{ current_user.course}}">
+
+                    </div>
+
+                    <hr class="my-4">
+
+                    <!-- Row 2 -->
+                    <div class="col-md-4">
+                        <label for="1001" class="form-label fw-bold">External Marks of 1001</label>
+                        <input type="number" class="form-control" id="1001" max=75 name="E1001"
+                            placeholder="Marks Out of 75" required>
+
+                        <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+                        <!-- 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div> -->
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="1002" class="form-label fw-bold">External Marks of 1002</label>
+                        <input type="number" class="form-control" id="1002" max=75 name="E1002"
+                            placeholder="Marks Out of 75" required>
+
+                        <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+                        <!-- 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div> -->
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="1003" class="form-label fw-bold">External Marks of 1003</label>
+                        <input type="number" class="form-control" id="1003" max=75 name="E1003"
+                            placeholder="Marks Out of 75" required>
+
+                        <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+                        <!-- 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div> -->
+
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="col-md-4">
+                        <label for="1004" class="form-label fw-bold">External Marks of 1004</label>
+                        <input type="number" class="form-control" id="1004" max=75 name="E1004"
+                            placeholder="Marks Out of 75" required>
+
+                        <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+                        <!-- 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div> -->
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="1005" class="form-label fw-bold">External Marks of 1005</label>
+                        <input type="number" class="form-control" id="1005" max=75 name="E1005"
+                            placeholder="Marks Out of 75" required>
+
+                        <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+                        <!-- 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div> -->
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="1002P" class="form-label fw-bold">External Marks of 1002P</label>
+                        <input type="number" class="form-control" id="1002P" max=75 name="E1002P"
+                            placeholder="Marks Out of 75" required>
+
+                        <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+                        <!-- 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div> -->
+
+                    </div>
+
+                    <hr class="my-4">
+                    <!-- Row 4 -->
+                    <div class="col-md-4">
+                        <label for="1001" class="form-label fw-bold">Internal Marks of 1001</label>
+                        <input type="number" class="form-control" id="1001" max=25 name="I1001"
+                            placeholder="Marks Out of 25" required>
+
+                        <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+                        <!-- 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div> -->
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="1002" class="form-label fw-bold">Internal Marks of 1002</label>
+                        <input type="number" class="form-control" id="1002" max=25 name="I1002"
+                            placeholder="Marks Out of 25" required>
+
+                        <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+                        <!-- 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div> -->
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="1003" class="form-label fw-bold">Internal Marks of 1003</label>
+                        <input type="number" class="form-control" id="1003" max=25 name="I1003"
+                            placeholder="Marks Out of 25" required>
+
+                        <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+                        <!-- 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div> -->
+
+                    </div>
+
+                    <!-- Row 5 -->
+                    <div class="col-md-4">
+                        <label for="1004" class="form-label fw-bold">Internal Marks of 1004</label>
+                        <input type="number" class="form-control" id="1004" max=25 name="I1004"
+                            placeholder="Marks Out of 25" required>
+
+                        <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+                        <!-- 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div> -->
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="1005" class="form-label fw-bold">Internal Marks of 1005</label>
+                        <input type="number" class="form-control" id="1005" max=25 name="I1005"
+                            placeholder="Marks Out of 25" required>
+
+                        <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+                        <!-- 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div> -->
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="1002P" class="form-label fw-bold">Internal Marks of 1002P</label>
+                        <input type="number" class="form-control" id="1002P" max=25 name="I1002P"
+                            placeholder="Marks Out of 25" required>
+
+                        <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+                        <!-- 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div> -->
+
+                    </div>
+                    <hr class="my-4">
+                    <!-- Row 6 -->
+                    <div class="col-md-4">
+                        <label for="CGPA" class="form-label fw-bold">CGPA (out of 10)</label>
+                        <input type="number" max=10 step=0.01 class="form-control" id="CGPA" name="CGPA"
+                            placeholder="CGPA" required>
+
+                        <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+                        <!-- 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div> -->
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="SGPA" class="form-label fw-bold">SGPA (out of 10)</label>
+                        <input type="number" max=10 step=0.01 class="form-control" id="SGPA" name="SGPA"
+                            placeholder="SGPA" required>
+
+                        <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+                        <!-- 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div> -->
+
+                    </div>
+
+
+
+
+                    <div class="col-md-4">
+                        <label for="result" class="form-label fw-bold">Upload Result ( *.pdf )</label>
+                        {% if errors %}
+                        <input type="file" class="form-control is-invalid" id="result" name="result" required>
+                        <div class="invalid-feedback">{{ errors }}</div>
+                        {% else %}
+                        <input type="file" class="form-control" id="result" name="result" required>
+                        {% endif %}
+
+                        <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+
+                        <!-- {{message}} -->
+
+                    </div>
+                    <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+                    <!-- 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div> -->
+
+
+            </div>
+
+            <div class="col-12  fs-6">
+                <div class="form-check fw-bold">
+                    <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
+                    <label class="form-check-label text-danger" for="terms">
+                        All the Information provided by me is correct and verified by the authorites
+                    </label>
+                </div>
+                <!-- for error messages Create is-valid variable to be passed in class of input using jinja template-->
+
+                <!-- 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div> -->
+            </div>
+            <div class="col-12 text-center mt-5 fw-bold">
+
+                <button type="submit" class="submission btn btn-primary">Submit</button>
+            </div>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+    </div>
+
+    <!-- Alert Toasts -->
+    {% with messages = get_flashed_messages(category_filter=["success"]) %}
+    {% if messages %}
+    <div class="toast align-items-center show bottom-0 end-0"
+        style="position: absolute; background-color: lightgreen; left:0px" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                <img src="{{ url_for('static', filename = 'Images/tick.png') }}" class="rounded me-2" alt="..."
+                    height="15px" width="15px">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            <button type="button" class="btn-close me-1 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% with messages = get_flashed_messages(category_filter=["danger"]) %}
+    {% if messages %}
+    <div class="toast align-items-center show bottom-0 end-0"
+        style="position: absolute; background-color: rgb(248, 175, 157); left:0px" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                <img src="{{ url_for('static', filename = 'Images/error.png') }}" class="rounded me-2" alt="..."
+                    height="15px" width="15px">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            <button type="button" class="btn-close me-1 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

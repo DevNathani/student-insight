@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="{{ url_for('static',filename='CSS/style.css') }}" />
+  <title>Index</title>
+</head>
+
+<body>
+  <div id="main-id">
+    <nav class=" navbar fixed-top navbar-light bg-light">
+      {% if current_user.is_authenticated %}
+      <a id="result-button" class="navbar-brand" href="{{ url_for('home')}}">WELCOME {{ current_user.name}}</a>
+      {% else %}
+      <a id="result-button" class="navbar-brand" href="{{ url_for('home')}}">Student Insight</a>
+      {% endif %}
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <input hidden="" class="check-icon" id="check-icon" name="check-icon" type="checkbox">
+        <label class="icon-menu" for="check-icon">
+          <div class="bar bar--1"></div>
+          <div class="bar bar--2"></div>
+          <div class="bar bar--3"></div>
+        </label>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          {% if current_user.is_authenticated %}
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('logout') }}">LOG OUT</a>
+          </li>
+          <!-- <li class="nav-item active">
+            <a class="nav-link font-weight-bold" href="{{ url_for('upload_marks') }}">Upload Marks</a>
+          </li> -->
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">PROFILE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">Result</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('login') }}">LOG IN</a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link " href="#">ABOUT</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="{{ url_for('contact')}}">CONTACT US</a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+
+    <!-- banner elements -->
+    <div class="banner">
+      <!-- uiverse banner button design  -->
+      <p class="typed1">STUDENT INSIGNT , Result in a Click</p>
+      <div><span class="auto-type typed"></span></div>
+      <a href="{{url_for('login')}}">
+        {% if not current_user.is_authenticated %}
+        <button style=" margin: 20px 0 0 15px" class="cta">
+          <span style="font-weight: bold; font-size: 15px; font-family:Verdana, Geneva, Tahoma, sans-serif;"
+            class="hover-underline-animation"> Sign In </span>
+          <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16">
+            <path id="Path_10" data-name="Path 10"
+              d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
+          </svg>
+        </button>
+        {% endif %}
+      </a>
+
+    </div>
+
+    <!-- news section heading only with design -->
+
+    <div class="-glow news-flex">
+
+      <div class=" news-flex1">
+
+        <nav style="border-bottom-style: dashed; margin-top: 50px; justify-content: flex-start; gap: 140px;"
+          id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3">
+          <a style="margin-left: 5px;" class="  navbar-brand" href="#">What's New</a>
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class=" nav-link" href="#scrollspyHeading1">All News</a>
+            </li>
+            <li class="nav-item">
+              <a class=" nav-link" href="#scrollspyHeading2">Placement</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                aria-expanded="false">Course</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#scrollspyHeading3">BCA</a></li>
+                <li><a class="dropdown-item" href="#scrollspyHeading4">BBA</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#scrollspyHeading5">MCA</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+
+        <div style="overflow-y:  scroll; padding-right: 10px; max-height: 300px; max-width: 590px; margin-left: 5px; "
+          data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%"
+          data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+          <h4 id="scrollspyHeading1">Latest News</h4>
+
+          <!-- latest news with topics template -->
+          <p style="cursor: pointer; color: blue;">In case of Ragging related concern feel free to immediately connect
+            us on - vsef.antiragging@gmail.com <span class="read-more">Read More...</span></p>
+          <p style="cursor: pointer; color: blue;">VSICS Attained 1st position amongst self financed colleges of Kanpur
+            for the semester examinations as officially declared by AKTU.<span class="read-more">Read More...</span></p>
+          <p style="cursor: pointer; color: blue;"> Regarding the Session 2023-24 revised examination schedule of LLB
+            5th semester and BALLB 5th, 7th and 9th semester examination.<span class="read-more">Read More...</span></p>
+
+          <hr class="dropdown-divider">
+          <h4 id="scrollspyHeading2">Componies Visited </h4>
+
+          <!-- internal design od each section of heading news -->
+
+          <div class="row">
+            <div class="col-4">
+              <div style="border: 1px solid black" id="list-example" class="list-group">
+                <a class="list-group-item list-group-item-action" href="#list-item-1">IGT</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-2">Accenture</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-3">Delloite</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-4">TCS</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-5">HCL</a>
+
+              </div>
+            </div>
+            <div class="col-8">
+              <div
+                style="overflow-y:  scroll; padding-right: 10px; max-height: 300px; max-width: 360px; margin-left: 5px; "
+                data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true"
+                class="scrollspy-example" tabindex="0">
+                <h6 id="list-item-1">IGT</h6>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt amet, ipsam excepturi tenetur iure
+                  autem cum quo asperiores dolore numquam facere reiciendi
+                  s laudantium accusamu <span class="read-more">Read More...</span></p>
+                <h6 id="list-item-2">Accenture</h6>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati facilis mollitia
+                  , vitae, in explicabo quod <span class="read-more">Read More...</span>
+                  ut nihil voluptate est rerum doloribus veritatis amet?</p>
+                <h6 id="list-item-3">Delloite</h6>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea,
+                  inventore. Corrupti eligendi dolore sequi quasi quidem ab <span class="read-more">Read More...</span>
+                </p>
+                <h6 id="list-item-4">TCS</h6>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque quia adipisci dicta velit, illum eos
+                  amet assumenda nisi blanditiis? Delectus deleniti nesciunt quis, tempora mollitia voluptatem dolor
+                  harum adipisci asperiores!
+                  Tempora deleniti, illo, velit itaque odio repellendus eius nihil saepe est deserunt nam expedita
+                  incidunt ea, aliquid blanditiis nesciunt ad eligendi soluta sint ullam veniam amet error! Qui, at
+                  animi.</p>
+                <h6 id="list-item-5">HCL</h6>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis inventore officia harum odio
+                  voluptatem quisquam delectus eos, pariatur deleniti deserunt aperiam consequatur ipsam doloremque
+                  voluptatum tempore ab sunt. Eum, atque.
+                  Accusantium alias quam maiores dolore. Velit, consequatur molestiae. In exercitationem nisi sed nam
+                  harum rerum cupiditate doloribus, modi consequuntur tempore consectetur impedit suscipit voluptas!
+                  Culpa quisquam libero ad aliquid dolore?</p>
+              </div>
+            </div>
+          </div>
+
+          <hr class="dropdown-divider">
+
+          <h4 id="scrollspyHeading3">BCA</h4>
+
+          <p>Lora iusto facere perferendis qui labore nobis! Aut accusantium perferendis, maxime nulla nam dolores.</p>
+          <p>Lora iusto facere perferendis qui labore nobis! Aut accusantium perferendis, maxime nulla nam dolores.</p>
+          <p>Lora iusto facere perferendis qui labore nobis! Aut accusantium perferendis, maxime nulla nam dolores.</p>
+
+          <h4 id="scrollspyHeading4">BBA</h4>
+
+          <p>Lora iusto facere perferendis qui labore nobis! Aut accusantium perferendis, maxime nulla nam dolores.</p>
+          <p>Lora iusto facere perferendis qui labore nobis! Aut accusantium perferendis, maxime nulla nam dolores.</p>
+          <p>Lora iusto facere perferendis qui labore nobis! Aut accusantium perferendis, maxime nulla nam dolores.</p>
+
+          <h4 id="scrollspyHeading5">MCA</h4>
+
+          <p>Lora iusto facere perferendis qui labore nobis! Aut accusantium perferendis, maxime nulla nam dolores.</p>
+          <p>Lora iusto facere perferendis qui labore nobis! Aut accusantium perferendis, maxime nulla nam dolores.</p>
+          <p>Lora iusto facere perferendis qui labore nobis! Aut accusantium perferendis, maxime nulla nam dolores.</p>
+
+        </div>
+      </div>
+
+      <!-- crousel design -->
+
+      <div class="news-flex2">
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="3000">
+              <img src="{{ url_for('static', filename = 'Images/6.jpg')}}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename = 'Images/7.png')}}" class="d-block w-100" alt="...">
+
+
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename = 'Images/6.jpg')}}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename = 'Images/7.png')}}" class="d-block w-100" alt="...">
+            </div>
+
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- top alumini placed from college design -->
+    <div class="containe">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="front-img"></div>
+            <div class="front-name"></div>
+
+          </div>
+          <div class="flip-card-back">
+            <p class="title">BACK</p>
+            <p>Leave Me</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="front-img"></div>
+            <div class="front-name"></div>
+          </div>
+          <div class="flip-card-back">
+            <p class="title">BACK</p>
+            <p>Leave Me</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="front-img"></div>
+            <div class="front-name"></div>
+          </div>
+          <div class="flip-card-back">
+            <div class="card">
+              <div class="card-info">
+                <div class="card-avatar"></div>
+                <div class="card-title">About</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="front-img"></div>
+            <div class="front-name"></div>
+          </div>
+          <div class="flip-card-back">
+            <p class="title">BACK</p>
+            <p>Leave Me</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- top alumini placed from college design for mobile -->
+
+
+
+    <!-- DESIGN OF TOP 3 STUDENT -->
+    <div class="containe">
+      <h2>---Ranking---</h2>
+    </div>
+    <div class="containe-t">
+
+      <div class="topp first-t">
+        <div class="t11"></div>
+        <div class="t12"></div>
+
+      </div>
+      <div class="topp secont-t">
+        <div class="t21"></div>
+        <div class="t22"></div>
+      </div>
+      <div class="topp third-t">
+        <div class="t31"></div>
+        <div class="t32"></div>
+      </div>
+
+    </div>
+
+
+    <!-- design of top 10 student of current sem -->
+
+    <div class="container">
+      <div id="stats">
+        <span>TOP 10 STUDENT </span>
+      </div>
+      <div class="palette">
+        <div class="color">
+          <p>3</p>
+
+          <span>Harshit Mishra CGPA-9.67</span>
+        </div>
+        <div class="color">
+          <p>4</p>
+          <span>Harshit Mishra CGPA-9.67</span>
+        </div>
+        <div class="color">
+          <p>5</p>
+          <span>LMAO</span>
+        </div>
+        <div class="color">
+          <p>6</p>
+          <span>Harshit Mishra CGPA-9.67</span>
+        </div>
+        <div class="color">
+          <p>7</p>
+          <span>LMAO</span>
+        </div>
+        <div class="color">
+          <p>8</p>
+          <span>LMAO</span>
+        </div>
+        <div class="color">
+          <p>9</p>
+          <span>LMAO</span>
+        </div>
+        <div class="color">
+          <p>10</p>
+          <span>Harshit Mishra CGPA-9.67</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- design of testimonials -->
+    <div class="containe">
+      <div class="testimonial">
+        <div class="t1">
+
+          <div class="t3">
+            <div class="test-img">
+            </div>
+
+            <p>Lorem ipsumelit. Accusamus nam nemo molestia
+              , quae voluptate suscipit
+              consectetur doloribus distinctio</p>
+
+          </div>
+          <div class="t4">
+            <div class="test-img">
+            </div>
+            <p>Lorem ipsumelit. Accusamus nam nemo molestia
+            </p>
+          </div>
+
+          <div class="t4">
+            <div class="test-img">
+            </div>
+            <p>Lorem ipsumelit. Accusamus nam nemo molestia
+            </p>
+          </div>
+
+          <div class="t3">
+            <div class="test-img">
+            </div>
+            <p>Lorem ipsumelit. Accusamus nam nemo molestia
+              , quae voluptate suscipit
+              consectetur doloribus distinctio</p>
+          </div>
+
+        </div>
+
+        <div class="t2">
+          <div class="test-img">
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita a eveniet ipsam nesciunt quas quasi non
+            totam eligend
+            i autem explicabo nobis architecto officiis, aperiam hic adipisci iste dolorum excepturi quaerat?</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- toast notification -->
+
+    <!-- Faq questions section -->
+    <h2 style="margin-left: 50px;">FAQ's</h2>
+    <div style="margin-bottom: 30px; margin-left: 30px; margin-right: 30px;" class="accordion accordion-flush"
+      id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            Accordion Item #1
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dicta culpa
+            expedita eius cupiditate nisi sint, in sit quos a? Corrupti fuga incidunt distinctio quidem, non ullam
+            reprehenderit ipsum reiciendis. the first item's accordion body.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            Accordion Item #2
+          </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dicta culpa
+            expedita eius cupiditate nisi sint, in sit quos a? Corrupti fuga incidunt distinctio quidem, non ullam
+            reprehenderit ipsum reiciendis. the second item's accordion body. Let's imagine this being filled with some
+            actual content.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            Accordion Item #3
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dicta culpa
+            expedita eius cupiditate nisi sint, in sit quos a? Corrupti fuga incidunt distinctio quidem, non ullam
+            reprehenderit ipsum reiciendis. the third item's accordion body. Nothing more exciting happening here in
+            terms of content, but just filling up the space to make it look, at least at first glance, a bit more
+            representative of how this would look in a real-world application.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapse4" aria-expanded="false" aria-controls="flush-collapse4">
+            Accordion Item 4
+          </button>
+        </h2>
+        <div id="flush-collapse4" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dicta culpa
+            expedita eius cupiditate nisi sint, in sit quos a? Corrupti fuga incidunt distinctio quidem, non ullam
+            reprehenderit ipsum reiciendis. the third item's accordion body. Nothing more exciting happening here in
+            terms of content, but just filling up the space to make it look, at least at first glance, a bit more
+            representative of how this would look in a real-world application.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- design of footer -->
+
+
+    <div class="foot">
+
+    </div>
+  </div>
+
+  <!-- Loader Animation -->
+
+  <div id="load" class="loading-screen-off">
+    <div class="loading">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div id="loader-text">Check Internet...</div>
+  </div>
+
+
+  <!-- result declared animation  -->
+  <div class="container-result-off">
+    <div class="results-summary-container">
+      <div class="confetti">
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+      </div>
+      <div class="results-summary-container__result">
+        <div class="heading-tertiary">Your Result (3rd Sem)</div>
+        <div class="result-box">
+          <div class="heading-primary">378</div>
+          <p class="result">of 600</p>
+        </div>
+        <div class="result-text-box">
+          <div class="heading-secondary">excellent</div>
+          <p class="paragraph">topper / excellent / good / average</p>
+        </div>
+        <div class="summary__cta">
+          <button class="btn btn__continue">Continue</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Alert Toasts -->
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <div class="toast align-items-center show bottom-0 end-0"
+    style="position: absolute; background-color: lightgreen; left:0px" role="alert" aria-live="assertive"
+    aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        <img src="{{ url_for('static', filename = 'Images/tick.png') }}" class="rounded me-2" alt="..." height="15px"
+          width="15px">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+      </div>
+      <button type="button" class="btn-close me-1 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+  {% endif %}
+  {% endwith %}
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="{{ url_for('static', filename = 'JavaScript/app.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+
+</html>
